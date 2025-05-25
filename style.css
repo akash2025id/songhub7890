@@ -144,3 +144,232 @@ footer {
   color: #fff;
   box-shadow: 0 0 25px #00c6c6;
 }
+
+/* বাম-ডান পাশে সাজানোর জন্য */
+h-3 {
+  display: flex;
+  justify-content: space-between; /* বাম ও ডান পাশে আলাদা করে */
+  width: 100%;
+}
+
+/* সাধারণ স্টাইল + অ্যানিমেশন */
+.rainbow-text {
+  animation: colorCycle 12s infinite; /* 6 colors × 2s = 12s */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+/* কালার চেঞ্জের কীফ্রেম */
+@keyframes colorCycle {
+  0% { color: rgb(255, 0, 0); text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); } /* Red */
+  16.6% { color: rgb(255, 165, 0); text-shadow: 2px 2px 4px rgba(255, 165, 0, 0.5); } /* Orange */
+  33.3% { color: rgb(255, 255, 0); text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.5); } /* Yellow */
+  50% { color: rgb(0, 255, 0); text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.5); } /* Green */
+  66.6% { color: rgb(0, 0, 255); text-shadow: 2px 2px 4px rgba(0, 0, 255, 0.5); } /* Blue */
+  83.3% { color: rgb(128, 0, 128); text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5); } /* Purple */
+  100% { color: rgb(255, 0, 0); text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); } /* Red (Loop) */
+}
+
+.color-box {
+  background: rgba(40, 40, 40, 0.9);
+  display: inline-block;
+  padding: 10px 50px;
+  border-radius: 8px;
+  margin: 15px 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+  /* নিচের লাইনগুলো যোগ করুন */
+  min-height: 20px; /* লম্বা করতে */
+  width: 60%;        /* চাইলে চওড়া করুন */
+}
+
+
+.sliding-text {
+  color: yellow;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 8px black;
+  white-space: nowrap;
+  animation: slideRightToLeft 50s linear infinite;
+  display: inline-block;
+  padding-left: 100%; /* শুরুতে টেক্সট লুকানো */
+  animation-iteration-count: infinite;
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.fixed-social-icons {
+  position: fixed;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.icon-text {
+  white-space: nowrap;
+  color: cyan;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  width: 0;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.social-icon:hover {
+  width: 150px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.social-icon:hover .icon-text {
+  opacity: 1;
+  width: auto;
+  margin-right: 15px;
+}
+
+/* Individual Icon Colors */
+.fb:hover { background: rgba(24, 119, 242, 0.1); }
+.yt:hover { background: rgba(255, 0, 0, 0.1); }
+.wa:hover { background: rgba(234, 60, 53, 0.1); }
+
+/* Tooltip-like effect */
+.social-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 60px;
+  
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.social-icon:hover::after {
+  opacity: 1;
+}
+
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  border-color: #ff4444;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ff4444;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-item {
+  margin-bottom: 30px;
+  transition: all 0.3s;
+}
+
+.video-item.hidden {
+  display: none;
+}
+
+.search-container {
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+#autoSearch {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+#autoSearch:focus {
+  border-color: #ff4444;
+  box-shadow: 0 0 8px rgba(255, 68, 68, 0.2);
+}
+
+.video-item {
+  margin: 20px 0;
+  transition: all 0.5s ease;
+}
+
+.video-item[style*="display: none"] {
+  opacity: 0;
+  transform: translateY(-10px);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+h3 {
+	color: #FFC0CB;
+	text-shadow: 0 0 8px Yellow;
+	
+}
+
+.h3-shadow-after {
+	
+	text-shadow: 0 0 10px red;
+}
