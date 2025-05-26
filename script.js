@@ -64,8 +64,8 @@ function displayVideos(videoList) {
   videoList.forEach(video => {
     container.innerHTML += `
       <div class="video-card">
-        <iframe width="100%" height="250" src="${video.embed || video.video}" frameborder="0" allowfullscreen></iframe>
-        <h2>${video.title}</h2>
+        <iframe width="60%" height="150px" src="${video.embed || video.video}" frameborder="0" allowfullscreen></iframe>
+        <h4>${video.title}</h4>
         <p>Release Date: ${video.release}</p>
         
         <div class="social-links">
