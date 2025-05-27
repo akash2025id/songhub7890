@@ -136,3 +136,14 @@
     "tiktok": "https://www.tiktok.com/@username/video/"
   },
 ]
+
+[
+  {
+    "title": "Inspiring Journey of a Coder",
+    "embed": "https://www.youtube.com/embed/GyyZ0elmSPw",
+    "release": "2025-05-01",
+    "youtube": "https://youtube.com/watch?v=GyyZ0elmSPw",
+    "facebook": "https://facebook.com/sharer/sharer.php?u=https://youtube.com/watch?v=GyyZ0elmSPw",
+    "tiktok": "https://www.tiktok.com/@username/video/123456"
+  }
+]
