@@ -1,56 +1,58 @@
-async function loadVideos() {
+async function loadVideos() { 
   const res = await fetch('data.json');
   const videos = await res.json();
   displayVideos(videos);
 
-  document.getElementById('searchInput').addEventListener('input', function () {
-    const keyword = this.value.toLowerCase();
-    const filtered = videos.filter(v => v.title.toLowerCase().includes(keyword));
-    displayVideos(filtered);
+  // Adjust sliding text animation speed
+  const slidingText = document.querySelector('.sliding-text');
+  function adjustAnimationSpeed() {
+    const textWidth = slidingText.scrollWidth;
+    const containerWidth = slidingText.parentElement.offsetWidth;
+    const duration = Math.max(5, (textWidth / containerWidth) * 5); // minimum 5 seconds
+    slidingText.style.animationDuration = `${duration}s`;
+  }
+  window.addEventListener('resize', adjustAnimationSpeed);
+  adjustAnimationSpeed(); // initial call
+
+  // Search input event - auto search + highlight
+  const searchInput = document.getElementById("videoSearch");
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const videoCards = document.querySelectorAll(".video-card");
+
+    videoCards.forEach(card => {
+      const titleElement = card.querySelector('h4');
+      const titleText = titleElement.textContent;
+      const titleTextLower = titleText.toLowerCase();
+
+      if (titleTextLower.includes(query)) {
+        card.style.display = "block";
+
+        // Highlight matched text
+        if (query.length > 0) {
+          // Create a regex with global and case-insensitive flags
+          const regex = new RegExp(`(${query.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+          titleElement.innerHTML = titleText.replace(regex, '<mark>$1</mark>');
+        } else {
+          // Remove highlight if search box empty
+          titleElement.textContent = titleText;
+        }
+      } else {
+        card.style.display = "none";
+      }
+    });
   });
 }
 
-// টেক্সট এলিমেন্ট সিলেক্ট করুন
-const slidingText = document.querySelector('.sliding-text');
-
-// টেক্সটের দৈর্ঘ্য অনুযায়ী গতি অটো সেট
-function adjustAnimationSpeed() {
-  const textWidth = slidingText.scrollWidth;
-  const containerWidth = slidingText.parentElement.offsetWidth;
-  const duration = Math.max(5, (textWidth / containerWidth) * 5); // মিনিমাম 5সেকেন্ড
-  
-  slidingText.style.animationDuration = `${duration}s`;
-}
-
-// রেসাইজ ইভেন্টে কল করুন
-window.addEventListener('resize', adjustAnimationSpeed);
-adjustAnimationSpeed(); // প্রথম লোডে কল
-
-
-
-const autoSearch = document.getElementById('autoSearch');
-
-// ডেবাউন্স ফাংশন (অতিরিক্ত রিকোয়েস্ট প্রতিরোধ)
-function debounce(func, delay) {
-  let timeout;
-  return function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, delay);
-  };
-}
-
-// অটো সার্চ ইমপ্লিমেন্টেশন
-autoSearch.addEventListener('input', debounce(function() {
-  const searchTerm = this.value.toLowerCase();
-  const videos = document.querySelectorAll('.video-item');
-  
-  videos.forEach(video => {
-    const title = video.querySelector('h3').textContent.toLowerCase();
-    video.style.display = title.includes(searchTerm) ? 'block' : 'none';
-  });
-}, 300)); // 300ms ডিলে
-
-
+const socialIcons = document.getElementById("socialIcons");
+window.addEventListener("scroll", function () {
+  let currentScroll = window.scrollY;
+  if (currentScroll > 100) {
+    socialIcons.classList.add("active");
+  } else {
+    socialIcons.classList.remove("active");
+  }
+});
 
 function displayVideos(videoList) {
   const container = document.getElementById('videoContainer');
