@@ -18,33 +18,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-#searchInput {
-  padding: 10px;
-  margin-top: 10px;
-  width: 60%;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #f0f;
-  background-color: #1f1f1f;
-  color: white;
-}
-
-#searchButton {
-  padding: 10px 20px;
-  margin-left: 10px;
-  background-color: #f0f;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 0 10px #f0f;
-  transition: all 0.3s;
-}
-
-#searchButton:hover {
-  box-shadow: 0 0 15px red;
-}
-
 #videoContainer {
   display: flex;
   flex-direction: column;
@@ -106,68 +79,8 @@ footer {
   margin-top: 40px;
   padding: 10px;
   color: #fff;
-  text-shadow: 0 0 20px #0ff;
-}
-
-.help-section {
-  position: fixed;
-  bottom: 50px;
-  right: 10px;
   text-align: center;
-  font-family: Arial, sans-serif;
-  color: #0ff;
-  margin: center;
-  text-shadow: 0 0 30px #0ff;
-  z-index: 1000;
-}
-
-.help-section p {
-  margin-bottom: 8px;
-  font-weight: bold;
-  font-size: 08px;
-}
-
-.help-button {
-  display: inline-block;
-  background-color: #0ff;
-  color: #000;
-  font-weight: bold;
-  padding: 15px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 0 40px #0ff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.help-button:hover {
-  background-color: #00c6c6;
-  color: #fff;
-  box-shadow: 0 0 25px #00c6c6;
-}
-
-/* বাম-ডান পাশে সাজানোর জন্য */
-h-3 {
-  display: flex;
-  justify-content: space-between; /* বাম ও ডান পাশে আলাদা করে */
-  width: 100%;
-}
-
-/* সাধারণ স্টাইল + অ্যানিমেশন */
-.rainbow-text {
-  animation: colorCycle 12s infinite; /* 6 colors × 2s = 12s */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 10px;
-}
-
-/* কালার চেঞ্জের কীফ্রেম */
-@keyframes colorCycle {
-  0% { color: rgb(255, 0, 0); text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); } /* Red */
-  16.6% { color: rgb(255, 165, 0); text-shadow: 2px 2px 4px rgba(255, 165, 0, 0.5); } /* Orange */
-  33.3% { color: rgb(255, 255, 0); text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.5); } /* Yellow */
-  50% { color: rgb(0, 255, 0); text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.5); } /* Green */
-  66.6% { color: rgb(0, 0, 255); text-shadow: 2px 2px 4px rgba(0, 0, 255, 0.5); } /* Blue */
-  83.3% { color: rgb(128, 0, 128); text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5); } /* Purple */
-  100% { color: rgb(255, 0, 0); text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); } /* Red (Loop) */
+  text-shadow: 0 0 20px #0ff;
 }
 
 .color-box {
@@ -205,130 +118,6 @@ h-3 {
   100% {
     transform: translateX(-100%);
   }
-}
-.fixed-social-icons {
-  position: fixed;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 1000;
-  padding: 05px;
-  transition: all 0.6s ease;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.9);
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  position: relative;
-}
-
-.social-icon img {
-  width: 35px;
-  height: 35px;
-  margin: 0 10px;
-  transition: all 0.3s ease;
-}
-
-.icon-text {
-  white-space: nowrap;
-  color: Green;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  opacity: 0;
-  width: 0;
-  transition: all 0.3s ease;
-}
-
-/* Hover Effects */
-.social-icon:hover {
-  width: 150px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.social-icon:hover .icon-text {
-  opacity: 1;
-  width: auto;
-  margin-right: 15px;
-}
-
-/* Individual Icon Colors */
-.fb:hover {
-  background: rgba(24, 119, 242, 0.15); /* Facebook blue */
-}
-
-.yt:hover {
-  background: rgba(24, 119, 242, 0.15); /* YouTube dark red */
-}
-
-.wa:hover {
-  background: rgba(24, 119, 242, 0.15); /* WhatsApp green */
-}
-
-
-/* Tooltip-like effect */
-.social-icon::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  right: 60px;
-  
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.social-icon:hover::after {
-  opacity: 1;
-}
-
-.search-container {
-  position: relative;
-  max-width: 600px;
-  margin: 20px auto;
-  display: flex;
-}
-
-.search-input {
-  width: 100%;
-  padding: 12px 20px;
-  border: 2px solid #ddd;
-  border-radius: 30px;
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s;
-}
-
-.search-input:focus {
-  border-color: #ff4444;
-}
-
-.clear-btn {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #ff4444;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s;
 }
 
 .video-item {
@@ -372,13 +161,172 @@ h-3 {
   overflow: hidden;
 }
 
-h3 {
-	color: #FFC0CB;
-	text-shadow: 0 0 8px Yellow;
-	
+.social-header-icons {
+  position: fixed;
+  top: 10px;                   /* top e thakbe */
+  left: 50%;                   /* center horizontally */
+  transform: translateX(-50%); /* perfect horizontal center */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;      /* text upore, icons niche */
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 15px #00fff7;
 }
 
-.h3-shadow-after {
+/* "Message Us" text style */
+.social-label {
+  color: #00fff7;
+  font-size: 16px;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+/* Icon style */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+/* Animation for text */
+@keyframes fadeIn {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+
+/* Text animation */
+@keyframes fadeIn {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+
+.hide-this-text {
+  display: none;
+}
+
+
+mark {
+  background-color: yellow;
+  color: black;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+.search-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+#videoSearch {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #1abc9c; /* nice teal color */
+  border-radius: 30px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#videoSearch:focus {
+  border-color: #16a085;
+  box-shadow: 0 0 8px #16a085;
+}
+
+@media (max-width: 480px) {
+  #videoSearch {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
+.social-header-icons {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 08px 80px;
+      border-radius: 15px;
+      background: #8B0000;
+      box-shadow: 0 0 15px #00fff7;
+      opacity: 0;
+      transform: translateY(30px) translateX(-50%);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .social-header-icons.active {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%);
+    }
+
+    .social-label {
+      color: #00fff7;
+      font-size: 16px;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out infinite alternate;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icons a img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a img:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.6; }
+      to { opacity: 1; }
+    }
 	
-	text-shadow: 0 0 10px red;
+.neon-footer {
+  text-align: center;
+  margin-top: 100px; /* Optional: Space before footer */
+  color: yellow;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 0 12px #00fff7, 0 0 25px #00fff7;
+  text-shadow: 0 0 4px white, 0 0 8px #00fff7;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3 {
+	color: red;
+	text-shadow: 0 0 8px yellow;
 }
